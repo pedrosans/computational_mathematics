@@ -23,40 +23,6 @@
 
 ;-----------------------------------------------------------------------------------------------------------------------------
 ;;
-;; :equacao lista de simbolos que representam a equação, cuidar para não passar uma função como parâmetro
-;; :target o símbolo da equação representando a variável referencia
-;; :vars a lista de todas variáveis que existem na função
-;;
-(defun derivada_parcial(equacao target vars)
-	(lambda ()
-		(funcall
-			(deriv
-				(lambda (xl)
-					(setq lamb xl)
-					(eval (replace_elements (replace_elements equacao (set-difference vars (list target)) 0) (list target) 'lamb) )
-				)
-			) (eval target)
-		)
-	)
-)
-;-----------------------------------------------------------------------------------------------------------------------------
-;;
-;; Retorna a matriz de funções para calcular a matriz jacobiana
-;;
-(defun jacobiana(funcoes variaveis &key (J (list)))
-	(progn
-		(loop for f in funcoes  do
-			(setq J_line (list))
-			(loop for x in variaveis do
-				(setq J_line (append J_line  (list (derivada_parcial f x variaveis))))
-			)
-			(setq J (append J  (list J_line)))
-		)
-       J
-	)
-)
-;-----------------------------------------------------------------------------------------------------------------------------
-;;
 ;; :funcoes lista de funções do sistema de equações
 ;; :variaveis lista dos símbolos representando as variáveis das equações
 ;; :precisao almejada
