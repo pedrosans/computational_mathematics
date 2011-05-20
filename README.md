@@ -36,3 +36,13 @@ The method find_root expects the function, its derivate, the initial guess, the 
 	(defun f(x) (+ (* x x x) (* x x -5) x 3))
 	(defun d(x) (+ (* x x) (* x -0) 1))
 	(print (find_root #'f #'d  0.5 0.00001 20))
+
+Regula Falsi method
+-------------------
+
+### To find the function root
+
+The method regula_falsi in regula_falsi.lisp file expects the function, the interval of the root, precision, and the maximun iterations number.
+
+	(defun f(x)(+ (* x x x) (* -9 x ) 3 ))
+	(print (regula_falsi #'f 0 1 0.00001 20 ))
