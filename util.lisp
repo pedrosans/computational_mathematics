@@ -30,7 +30,7 @@
 			(deriv
 				(lambda (xl)
 					(setq lamb xl)
-					(eval (replace_elements (replace_elements equacao (set-difference vars (list target)) 0) (list target) 'lamb) )
+					(eval (replace_elements (replace_elements equacao (set-difference vars (list target)) 1) (list target) 'lamb) )
 				)
 			) (eval target)
 		)
