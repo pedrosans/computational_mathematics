@@ -23,7 +23,7 @@ Give the initial guess:
 	(setq x2 1/2)
 	(setq x3 1/2)
 
-The method expect a list of equations, variables, the precistion and the maximum iterations number. The result is returned as a list. 
+The method expects a list of equations, variables, the precistion and the maximum iterations number. The result is returned as a list. 
 	
 	(newton (list f1 f2 f3) '(x1 x2 x3) 1/10000 5)
 	
@@ -31,7 +31,7 @@ The method expect a list of equations, variables, the precistion and the maximum
 ### To find root
 In the newtons_method.lisp file there are the algorithm to find the root of some equation.
 
-The method find_root expect the function, its derivate, the initial guess, the precision and maximun iterations number.
+The method find_root expects the function, its derivate, the initial guess, the precision and maximun iterations number.
 
 	(defun f(x) (+ (* x x x) (* x x -5) x 3))
 	(defun d(x) (+ (* x x) (* x -0) 1))
