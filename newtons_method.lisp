@@ -91,18 +91,36 @@
 		)
 	)
 )
-;-----------------------------------------------------------------------------------------------------------------------------
 ;;
 ;;exemplo de utilização:
 ;;
 ;;definindo as equações
-(setq f1 '(+ (* x1 x1 ) (* x2 x2) (* x3 x3) -1))
-(setq f2 '(+ (* 2 x1 x1) (* x2 x2) (* -4 x3 )))
-(setq f3 '(+ (* 3 x1 x1) (* -4 x2) (* x3 x3 )))
+;(setq f1 '(+ (* x1 x1 ) (* x2 x2) (* x3 x3) -1))
+;(setq f2 '(+ (* 2 x1 x1) (* x2 x2) (* -4 x3 )))
+;(setq f3 '(+ (* 3 x1 x1) (* -4 x2) (* x3 x3 )))
 ;; chute inicial
-(setq x1 5)
-(setq x2 23)
-(setq x3 6)
+;(setq x1 5)
+;(setq x2 23)
+;(setq x3 6)
 ;;imprime resultados
-(setq resultado (newton (list f1 f2 f3) '(x1 x2 x3) 1/10000 5))
-(print "resultado: ")(print_list resultado)
+;(setq resultado (newton (list f1 f2 f3) '(x1 x2 x3) 1/10000 5))
+;(print "resultado: ")(print_list resultado)
+
+;-----------------------------------------------------------------------------------------------------------------------------
+(defun find_root(funcao derivada chute precisao interacoes)
+	(if (< interacoes 0) 
+		chute
+		(progn 
+			(setq sombra (f chute))
+			(format t "~,10F ~,10F ~D ~%" chute sombra interacoes)
+			(if (and (< sombra precisao) (> sombra (* precisao -1)))
+				(progn (print "precisao alcancada") chute )
+				(find_root funcao derivada (- chute (/ (funcall funcao chute) (funcall derivada chute)) ) precisao (- interacoes 1))
+			)
+		)
+	)
+)
+;;exemplo de utilização:
+;	(defun f(x) (+ (* x x x) (* x x -5) x 3))
+;	(defun d(x) (+ (* x x) (* x -0) 1))
+;	(print (find_root #'f #'d  0.5 0.00001 20))
