@@ -5,7 +5,7 @@ Overview
 --------
 Set of algorithms to solve commom mathematical problems and utility methods.
 
-Newton–Raphson method
+Newton Raphson method
 ---------------------
 
 ### To solve nonlinerar equations
@@ -46,3 +46,13 @@ The method regula_falsi in regula_falsi.lisp file expects the function, the inte
 
 	(defun f(x)(+ (* x x x) (* -9 x ) 3 ))
 	(print (regula_falsi #'f 0 1 0.00001 20 ))
+	
+Secant method
+-------------
+
+### To find the funciton root
+
+The method secant in secant.lisp file expects the function, 2 initial guesses, precision, and the maximun iterations number.
+
+	(defun f(x)(+ (* x x x) (* x x -1) (* -12 x ) ))
+	(print (secant #'f 2 3 0.00001 20 ))
