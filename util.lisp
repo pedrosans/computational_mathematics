@@ -53,6 +53,7 @@
 	)
 )
 ;-----------------------------------------------------------------------------------------------------------------------------
+;; :target lista of elements to be replaced
 (defun replace_elements(list_p target replacement)
 	(cond
 		((eq list_p nil) nil)
