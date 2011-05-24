@@ -18,8 +18,9 @@
 ;;
 
 ;;Importante: alterar o caminho dos arquivos utilitários. Ex.: c:/src/util.lisp
-(load "/util.lisp") 
-(load "/math_util.lisp") 
+
+(load "C:/java/git-repo/computational_mathematics/util.lisp")
+(load "C:/java/git-repo/computational_mathematics/math_util.lisp")
 
 ;-----------------------------------------------------------------------------------------------------------------------------
 ;;
@@ -57,6 +58,13 @@
 		)
 	)
 )
+
+(setq f1 '(+ (/ (+ (* 2 x1) (* -1 (expt x1 2)) 8) 9 )  (/ (+ (* 4 x2)(* -1 (expt x2 2))) 4 )  ))
+(setq f2 '(+ (* 8 x1) (* -4 (expt x1 2)) (expt x2 2) 1 ))
+(setq x1 -1)
+(setq x2 -1)
+(setq resultado (newton (list f1 f2  ) '(x1 x2  ) 1/10000 5))
+(print "resultado: ")(print_list resultado)
 ;;
 ;;exemplo de utilização:
 ;;
