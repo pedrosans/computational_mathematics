@@ -1,4 +1,4 @@
-;http://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method
+;new comment stuff http://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method
 (load "C:/java/git-repo/computational_mathematics/util.lisp")
 (load "C:/java/git-repo/computational_mathematics/math_util.lisp")
 ;(load "C:/dev/git-repos/computational_mathematics/util.lisp")
